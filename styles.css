@@ -562,6 +562,11 @@ footer a {
   background: rgba(0, 0, 0, 0.7);
   letter-spacing: 0.3rem;
 }
+@media screen and (max-width: 600px) {
+  .districtpg-hero h2 {
+    letter-spacing: 0.2rem;
+  }
+}
 #thrissur {
   background: url(./media/thrissur-bground.jpg) no-repeat;
   background-size: cover;
@@ -821,6 +826,41 @@ footer a {
   background: url(./media/kerala-gods-own-country.jpg) no-repeat bottom center;
   background-size: cover;
 }
+
+-----------POPUP FOR MOBILE MENU----------------- .popup .overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 80vw;
+  height: 80vh;
+  z-index: 10;
+  display: none;
+}
+.popup .content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  border: 5px solid rgb(245, 4, 16);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: yellow;
+  width: 85vw;
+  height: 60vh;
+  z-index: 20;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.popup .content button {
+  width: 70%;
+}
+
+.popup .close-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
   width: 30px;
   height: 30px;
   background: #222;
