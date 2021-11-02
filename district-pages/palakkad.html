@@ -46,10 +46,20 @@
                 <li><a href="./../login-page.html"><button class="link-btn">Log In</button></a></li>
             </ul>
             <div class="submenu-icon">
-                <i class="fa fa-bars" aria-hidden="true"></i>
+                <i class="fa fa-bars" onclick="togglePopup()" aria-hidden="true"></i>
             </div>
         </nav>
     </header>
+    <div class="popup" id="popup-1">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="close-btn" onclick="togglePopup()">&times;</div>
+            <a href="./../index.html"><button>Home</button></a>
+            <a href="./../index.html#tour-packages"><button>Tour Packages</button></a>
+            <a href="./../district-page.html"><button>Experience Kerala</button></a>
+            <a href="./../register.html"><button class="link-btn">Register</button></a>
+            <a href="./../login-page.html"><button class="link-btn">Log In</button></a>
+        </div>
     <div class="districtpg-hero" id="palakkad">
         <h2>PALAKKAD</h2>
         <h4>The rice bowl of Kerala</h4>
@@ -79,7 +89,8 @@
 
         </ul>
     </section>
-
+    </div>
+</div>
     <div class="footer">
         <img src="./../media/logo.png">
         <section class="footer-wrapper">
@@ -147,6 +158,9 @@
 
             }
         }
+        function togglePopup() {
+                document.getElementById("popup-1").classList.toggle("active");
+            }
     </script>
 
 </body>

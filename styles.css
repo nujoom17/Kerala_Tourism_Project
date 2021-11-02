@@ -821,3 +821,21 @@ footer a {
   background: url(./media/kerala-gods-own-country.jpg) no-repeat bottom center;
   background-size: cover;
 }
+  width: 30px;
+  height: 30px;
+  background: #222;
+  color: #fff;
+  font-size: 25px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.popup.active .overlay {
+  display: block;
+  background: rgba(0, 0, 0, 0.75);
+}
+.popup.active .content {
+  transition: all 0.1s ease-in-out;
+  transform: translate(-50%, -50%) scale(1);
+}
