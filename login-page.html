@@ -71,15 +71,22 @@
                     <div class="card border-0 shadow rounded-3 my-5">
                         <div class="card-body p-4 p-sm-5">
                             <h5 class="card-title text-center mb-5 fw-light fs-5">Sign In</h5>
-                            <form>
+                            <form action="./district-page.html" onsubmit="return validate()">
+                                <label id="email-alert-slg"></label>
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                    <input type="email" oninput="checkEmail()" class="form-control" id="floatingInput" placeholder="name@example.com">
                                     <label for="floatingInput">Email address</label>
                                 </div>
+
+                                <label id="pwd-alert"></label>
                                 <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                    <input type="password" oninput="checkPassword(); strengthPassword();" class="form-control" id="floatingPassword" placeholder="Password">
                                     <label for="floatingPassword">Password</label>
                                 </div>
+                                <label id="pwd-strength2">Password Strength: <b>Weak</b>
+                                </label>
+                                <div id="bar2"></div>
+
         
                                 <div class="form-check mb-3">
                                     <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
@@ -87,6 +94,8 @@
                                         Remember password
                                     </label>
                                 </div>
+                        
+
                                 <div class="d-grid">
                                     <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign
                                         in</button>
@@ -162,6 +171,88 @@
          function togglePopup() {
                 document.getElementById("popup-1").classList.toggle("active");
             }
+        function checkEmail(){
+            let emailInput = document.getElementById("floatingInput");
+            let emailRegex = /^([\w\_\-\.]+)@([\w\_\-\.]+)\.([a-z\-]{2,3})(\.[a-z]{2,3})?$/;
+            let emailLabel = document.getElementById("email-alert-slg");
+            emailLabel.style.color = "white"
+           
+            if (emailRegex.test(emailInput.value.trim())) {
+                emailLabel.style.background = " green"
+                emailLabel.innerText = "Email is of valid format"
+                
+                // console.log("valid") 
+                return true;
+            }
+            else {
+                emailLabel.style.background = " red"
+                emailLabel.innerText = "Invalid Email"
+                // console.log("invalid")
+                return false;
+            }
+        }
+        function checkPassword() {
+             
+                checkEmail()
+                
+                let passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/
+                let passwordInput = document.getElementById("floatingPassword")
+                let passwordLabel = document.getElementById("pwd-alert")
+                passwordLabel.style.color = "white"
+
+                if (passwordRegex.test(passwordInput.value)) {
+                    passwordLabel.style.background = "green"
+                    passwordLabel.innerText = "Password is Valid"
+                    return true
+
+                }
+                else {
+                    passwordLabel.style.background = "red"
+                    passwordLabel.innerText = "Invalid Password. Try again"
+                    return false
+                }
+            }
+
+            function strengthPassword(){
+                 let passwordInput = document.getElementById("floatingPassword")
+                let bar = document.getElementById("bar2")
+                let label = document.getElementById("pwd-strength2")
+                let medium = /([a-zA-Z]|[a-z0-9]){8,}/
+                let strong = /((?=.*\d)(?=.*[A-Z])(?=.*[\_\.@#$])).{8,}/
+
+                if (!medium.test(passwordInput.value) && !strong.test(passwordInput.value)) {
+                    bar.style.background = "red"
+                    bar.style.width = "16%";
+                    label.innerText = "Password Strength: Weak"
+                }
+
+                else if (strong.test(passwordInput.value)) {
+                    bar.style.background = "green"
+                    bar.style.width = "80%";
+                    label.innerText = "Password Strength: Strong"
+                }
+                else if (medium.test(passwordInput.value)) {
+                    bar.style.background = "yellow"
+                    bar.style.width = "50%";
+                    label.innerText = "Password Strength: Medium"
+                }
+            }
+
+
+            
+            
+            
+
+            function validate(){
+                if(checkEmail()&&checkPassword()){
+                    return true
+                }
+                else{
+                    return false
+                }
+            }
+
+        
     </script>
 </body>
 </html>

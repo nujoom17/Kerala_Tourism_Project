@@ -31,6 +31,7 @@ a:link {
 /*------------nav-bar items----------------*/
 nav {
   position: fixed;
+  top: 0;
   display: flex;
   justify-items: center;
   background-color: rgba(0, 0, 0, 0.6);
@@ -396,7 +397,7 @@ h3 {
 }
 /* ------------------------------------------FORM PAGE -REGISTRATION -----------------------------------*/
 
-.h-100 {
+/* .h-100 {
   margin-top: 5rem;
 }
 @media (min-width: 1025px) {
@@ -416,16 +417,16 @@ h3 {
 
 .gradient-custom-2 {
   /* fallback for old browsers */
-  background: #a1c4fd;
+/* background: #a1c4fd;
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgb(244, 253, 161), rgb(1, 230, 20));
+/* background: linear-gradient(to right, rgb(244, 253, 161), rgb(1, 230, 20));
 }
 
 .bg-green {
   background-color: rgb(0, 119, 0);
-}
-@media (min-width: 992px) {
+} */
+/* @media (min-width: 992px) {
   .card-registration-2 .bg-green {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -439,22 +440,113 @@ h3 {
 }
 .registration-page {
   margin-top: 0;
-}
-@media screen and (max-width: 460px) {
+} */
+/* @media screen and (max-width: 460px) {
   .registration-page {
     margin-bottom: 130rem;
   }
   header {
     height: 4rem;
   }
-}
-@media screen and (max-width: 1024px) {
+} */
+/* @media screen and (max-width: 1024px) {
   .registration-page {
     margin-bottom: 130rem;
   }
   header {
     height: 4rem;
   }
+}  */
+
+.form-layout {
+  width: 73%;
+  border: 3px solid rgb(0, 196, 0);
+  border-radius: 30px;
+  margin: 14rem auto;
+  padding-top: 5rem;
+  display: grid;
+  grid-template-columns: 0.2fr 1fr 1fr 0.2fr;
+  grid-row-gap: 1em;
+  grid-column-gap: 1em;
+  padding-bottom: 5rem;
+  background-color: rgb(255, 255, 255, 0.95);
+}
+@media screen and (max-width: 800px) {
+  .form-layout {
+    width: 96%;
+  }
+}
+.form-layout h2,
+p {
+  margin: auto;
+  grid-column: 1/-1;
+}
+
+.form-layout label {
+  grid-column: 2/3;
+}
+.form-layout input {
+  grid-column: 3/4;
+}
+.form-layout #firstname-alert,
+#lastname-alert,
+#alert-msg1,
+#alert-msg2,
+#number-alert,
+#email-alert {
+  grid-column: 3/4;
+  color: white;
+  border-radius: 7px;
+}
+.form-layout #final-check {
+  grid-column: 2/4;
+  text-align: center;
+  font-size: x-large;
+}
+
+.form-layout button {
+  grid-column: 2/4;
+  background: rgb(0, 196, 0);
+  color: white;
+  border-radius: 30px;
+  border: none;
+  padding: 0.2rem 0.7rem 0.2rem 0.7rem;
+  font-size: 1.2rem;
+}
+
+#alert-msg1,
+#alert-msg2,
+#number-alert {
+  border: 2.5px solid yellow;
+}
+
+#pwd-strength {
+  height: 2rem;
+  grid-column: 3/4;
+  border-radius: 12px;
+}
+#pwd-strength2 {
+  height: 2rem;
+  /* grid-column: 3/4; */
+  border-radius: 12px;
+}
+#bar {
+  grid-column: 3/4;
+  width: 10%;
+  background: red;
+  font-size: 10px;
+  height: 0.5rem;
+  border-radius: 12px;
+  margin-top: -1.5rem;
+}
+#bar2 {
+  width: 10%;
+  background: red;
+  font-size: 10px;
+  height: 0.5rem;
+  border-radius: 12px;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
 }
 /* ---------------------------FORM PAGE- LOG-IN--------------------------------- */
 .login-container {

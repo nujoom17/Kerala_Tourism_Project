@@ -15,7 +15,7 @@
     
 </head>
 
-<body>
+<body style="background: url(./media/forest.jpg) no-repeat; background-size: cover;">
     <header>
         <!-----------------NAV-BAR-------------->
         <nav>
@@ -64,182 +64,76 @@
             <a href="./register.html"><button class="link-btn">Register</button></a>
             <a href="./login-page.html"><button class="link-btn">Log In</button></a>
             </div>
+        <form class="form-layout" action="./login-page.html" onsubmit="return validate()">
+            <h2>Registration Form</h2>
+
+            <p>already have an account? <a href="./login-page.html">Sign in Here</a> </p>
+          
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" name="firstname" oninput="checkFirstName()">
+            <label id="firstname-alert"></label>
+            
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname" name="lastname" oninput="checkLastName()">
+            <label id="lastname-alert"></label>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="abc@example.domain(.subdomain)" oninput="checkEmail()" name="email">
+            <label id="email-alert"></label>
+            
+            <label for="number">Phone Number</label>
+            <input type="text" id="number" placeholder="10-digit phone number" oninput="checkNumber()" name="number">
+            <label id="number-alert" style="color: black;">Examples of valid formats for number: XXXXXXXXXX or XXX-XXX-XXXX or XXX.XXX.XXXX or XXX XXX XXXX</label>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date">
+            
+            <label for="pass">Set Password</label>
+            <input type="password" placeholder="min 8 characters" oninput="checkPassword(); passwordStrength();"  id="password" name="pass">
+            <label id="pwd-strength" >Password Strength: <b>Weak</b>
+                </label>
+            <div id="bar"></div>
+            
+            <label id="alert-msg1" style="color: black;">
+                Password must contain at least 8 characters, with minimum of one:
+                 upper-case, lower-case & number</label>
+
+            <label for="pass">Confirm Password</label>
+            <input type="password" id="password-confirm" oninput="confirmPassword()" placeholder="verify password" name="pass">
+            <label id="alert-msg2" style="color: black;">Passwords should match</label>
+
+            
+            <label>Gender</label>
+            <label for="gender1">Male</label>
+            <input type="radio" id="gender1" name="gender" value="male">
+            
+            <label for="gender2">Female</label>
+            <input type="radio" id="gender2" name="gender" value="female">
+            
+            <label for="gender3">Other</label>
+            <input type="radio" id="gender3" name="gender" value="other">
+            
+            
+            
+            <label> Account type</label>
+            <select>
+                <option value="standard">Standard</option>
+                <option value="premium">Premium</option>
+            </select>
+            
+            <label for="remember-me">Remember Me</label>
+            <input type="checkbox" value="remember-me">
+            
+            <label for="terms">I accept your <a href="#">terms and conditions</a></label>
+            <input type="checkbox" value="terms" checked>
+
+            <label id="final-check"></label>
+            
+           
+            <button type="submit">Create New Account</button>
+            
+        </form>
    
-        <section class="h-100 h-custom gradient-custom-2 registration-page">
-            <div class="container py-5 h-100">
-                <div class="row d-flex justify-content-center align-items-center h-100">
-                    <h4>Already have an account? <a href="./login-page.html">Sign in Here</a></h4>
-                    <div class="col-12">
-                        <div class="card card-registration card-registration-2" style="border-radius: 15px;">
-                            <div class="card-body p-0">
-                                <div class="row g-0">
-                                    <div class="col-lg-6">
-                                        <div class="p-5">
-                                            <h3 class="fw-normal mb-5" style="color: #4835d4;">General Infomation</h3>
-        
-                                            <div class="mb-4 pb-2">
-                                                <select class="select">
-                                                    <option value="1">Title</option>
-                                                    <option value="2">Mr.</option>
-                                                    <option value="3">Ms/Mrs</option>
-                                                    <option value="4">Dr</option>
-                                                </select>
-                                            </div>
-        
-                                            <div class="row">
-                                                <div class="col-md-6 mb-4 pb-2">
-        
-                                                    <div class="form-outline">
-                                                        <input type="text" id="form3Examplev2"
-                                                            class="form-control form-control-lg" />
-                                                        <label class="form-label" for="form3Examplev2">First name</label>
-                                                    </div>
-
-        
-                                                </div>
-                                                <div class="col-md-6 mb-4 pb-2">
-        
-                                                    <div class="form-outline">
-                                                        <input type="text" id="form3Examplev3"
-                                                            class="form-control form-control-lg" />
-                                                        <label class="form-label" for="form3Examplev3">Last name</label>
-                                                    </div>
-        
-                                                </div>
-                                            </div>
-        
-                                            <div class="mb-4 pb-2">
-                                                <select class="select">
-                                                    <option value="1">Current Employment type</option>
-                                                    <option value="2">Full-time</option>
-                                                    <option value="3">Part-time</option>
-                                                    <option value="4">Freelancer</option>
-                                                    <option value="4">Self employed</option>
-                                                    <option value="4">Unemployed</option>
-                                                </select>
-                                            </div>
-        
-                                            <div class="mb-4 pb-2">
-                                                <div class="form-outline">
-                                                    <input type="text" id="form3Examplev4"
-                                                        class="form-control form-control-lg" />
-                                                    <label class="form-label" for="form3Examplev4">Designation</label>
-                                                </div>
-                                            </div>
-        
-                                            <div class="row">
-                                                <div class="col-lg-9 col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
-
-                                                    <div class="mb-5">
-                                                    <label class="form-label" for="form3Examplev5">Choose your preferred type of Subscription</label>
-                                                        <select class="select">
-                                                            <option value="1">Standard Account</option>
-                                                            <option value="2">Premium Subscription</option>
-                                                            <option value="3">Premium Plus</option>
-                                                        </select>
-                                                    
-                                                    </div>
-        
-                                                   
-        
-                                                </div>
-                                               
-                                            </div>
-        
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 bg-green text-white">
-                                        <div class="p-5">
-                                            <h3 class="fw-normal mb-5">Contact Details</h3>
-        
-                                            <div class="mb-4 pb-2">
-                                                <div class="form-outline form-white">
-                                                    <input type="text" id="form3Examplea2"
-                                                        class="form-control form-control-lg" required />
-                                                    <label class="form-label" for="form3Examplea2" >Permanent Address</label>
-                                                </div>
-                                            </div>
-        
-        
-                                            <div class="row">
-                                                <div class="col-md-5 mb-4 pb-2">
-        
-                                                    <div class="form-outline form-white">
-                                                        <input type="text" id="form3Examplea3"
-                                                            class="form-control form-control-lg" />
-                                                        <label class="form-label" for="form3Examplea3">Pin Code</label>
-                                                    </div>
-        
-                                                </div>
-                                                <div class="col-md-7 mb-4 pb-2">
-        
-                                                    <div class="form-outline form-white">
-                                                        <input type="text" id="form3Examplea4"
-                                                            class="form-control form-control-lg" required/>
-                                                        <label class="form-label" for="form3Examplea4">Town/City</label>
-                                                    </div>
-        
-                                                </div>
-                                            </div>
-        
-                                            <div class="mb-4 pb-2">
-                                                <div class="form-outline form-white">
-                                                    <input type="text" id="form3Examplea5"
-                                                        class="form-control form-control-lg" required />
-                                                    <label class="form-label" for="form3Examplea5">Country</label>
-                                                </div>
-                                            </div>
-        
-                                            <div class="row">
-                                                <div class="col-md-5 mb-4 pb-2">
-        
-                                                    <div class="form-outline form-white">
-                                                        <input type="text" id="form3Examplea6"
-                                                            class="form-control form-control-lg" required/>
-                                                        <label class="form-label" for="form3Examplea6">Country Code</label>
-                                                    </div>
-        
-                                                </div>
-                                                <div class="col-md-7 mb-4 pb-2">
-        
-                                                    <div class="form-outline form-white">
-                                                        <input type="text" id="form3Examplea7"
-                                                            class="form-control form-control-lg" />
-                                                        <label class="form-label" for="form3Examplea7">Phone Number</label>
-                                                    </div>
-        
-                                                </div>
-                                            </div>
-        
-                                            <div class="mb-4">
-                                                <div class="form-outline form-white">
-                                                    <input type="text" id="form3Examplea9"
-                                                        class="form-control form-control-lg" />
-                                                    <label class="form-label" for="form3Examplea9">Your Email</label>
-                                                </div>
-                                            </div>
-        
-                                            <div class="form-check d-flex justify-content-start mb-4 pb-3">
-                                                <input class="form-check-input me-3" type="checkbox" value=""
-                                                    id="form2Example3c" />
-                                                <label class="form-check-label text-white" for="form2Example3">
-                                                    I have read and accepted your <a href="#!" class="text-white"><u>Terms and
-                                                            Conditions</u></a>
-                                                </label>
-                                            </div>
-        
-                                            <button type="button" class="btn btn-light btn-lg"
-                                                data-mdb-ripple-color="dark">Register</button>
-        
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         </div>
         </div>
 
@@ -288,10 +182,184 @@
             <hr>
             <h6>© Kerala Tourism Dept 2021. All Rights Reserved</h6>
         </div>
+
     <script>
         function togglePopup() {
                 document.getElementById("popup-1").classList.toggle("active");
             }
+
+        function checkFirstName(){
+            let firstNameInput = document.getElementById("firstname").value.trim()
+            let firstNameAlert = document.getElementById("firstname-alert")
+            console.log("hello")
+
+            if (firstNameInput == "" || firstNameInput.length < 3) {
+                firstNameAlert.style.background = " red"
+                firstNameAlert.innerText = "First Name cannot be empty or short"
+                console.log("empty name")
+                return false
+            }
+            else {
+                firstNameAlert.style.background="green"
+                firstNameAlert.innerText="Valid first name";
+                return true
+            }
+        }
+
+        function checkLastName(){
+            checkFirstName()
+            let lastNameInput = document.getElementById("lastname").value.trim()
+            let lastNameAlert = document.getElementById("lastname-alert")
+
+            if (lastNameInput == ""||lastNameInput.length<3) {
+                lastNameAlert.style.background = "red"
+                lastNameAlert.innerText = "Last Name cannot be empty or short"
+                return false
+            }
+            else {
+                lastNameAlert.style.background = "green"
+                lastNameAlert.innerText = "Valid last name";
+                return true
+            }
+
+        }
+        function checkEmail(){
+            checkFirstName()
+            checkLastName()
+            let emailInput = document.getElementById("email");
+            let emailRegex = /^([\w\_\-\.]+)@([\w\_\-\.]+)\.([a-z\-]{2,3})(\.[a-z]{2,3})?$/;
+            let emailLabel = document.getElementById("email-alert")
+            if (emailRegex.test(emailInput.value.trim())) {
+                emailLabel.style.background = " green"
+                emailLabel.innerText = "Email is of valid format"
+                // console.log("valid") 
+                return true;  
+            }
+            else {
+                emailLabel.style.background = " red"
+                emailLabel.innerText = "Invalid Email"
+                // console.log("invalid")
+                return false;
+            }
+        }
+
+        function checkNumber(){
+            checkFirstName()
+            checkLastName()
+            checkEmail()
+            let mobileRegex = /^(\d{3})[\-\.\s]?(\d{3})[\-\.\s]?(\d{4})$/
+            let mobileLabel = document.getElementById("number-alert")
+            let numberInput = document.getElementById("number")
+            if (mobileRegex.test(numberInput.value.trim())) {
+                mobileLabel.style.background = " green"
+                mobileLabel.innerText = "Valid number format"
+                mobileLabel.style.color="white"
+                // console.log("valid")
+                return true
+
+            }
+            else {
+                mobileLabel.style.background = "red"
+                mobileLabel.innerText = "Invalid number format"
+                mobileLabel.style.color = "white"
+                // console.log("invalid")
+                return false
+            }
+        }
+
+        function checkPassword(){
+            checkFirstName()
+            checkLastName()
+            checkEmail()
+            checkNumber()
+            let passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/
+            let passwordInput = document.getElementById("password")
+            let passwordLabel = document.getElementById("alert-msg1")
+            
+
+            if (passwordRegex.test(passwordInput.value)) {
+                passwordLabel.style.background = "green"
+                passwordLabel.innerText = "Password is Valid"
+                passwordLabel.style.color = "white"
+                passwordLabel.style.border="none"
+                return true
+
+            }
+            else {
+                passwordLabel.style.background = "red"
+                passwordLabel.innerText = "Invalid Password. Try again"
+                 passwordLabel.style.color = "white"
+                 passwordLabel.style.border = "none"
+                return false
+            }
+        }
+
+        function passwordStrength(){
+             let passwordInput = document.getElementById("password")
+             let bar=document.getElementById("bar")
+             let label=document.getElementById("pwd-strength")
+             let medium= /([a-zA-Z]|[a-z0-9]){8,}/
+             let strong= /((?=.*\d)(?=.*[A-Z])(?=.*[\_\.@#$])).{8,}/
+    
+             if(!medium.test(passwordInput.value)&&!strong.test(passwordInput.value)){
+                 bar.style.background = "red"
+                 bar.style.width = "16%";
+                 label.innerText = "Password Strength: Weak"
+
+             }
+             else if(strong.test(passwordInput.value)){
+                 bar.style.background = "green"
+                 bar.style.width = "80%";
+                 label.innerText = "Password Strength: Strong"
+             }
+            else if (medium.test(passwordInput.value)) {
+                 bar.style.background = "yellow"
+                 bar.style.width = "50%";
+                 label.innerText = "Password Strength: Medium"
+             }
+    }
+
+        function confirmPassword(){
+            checkFirstName()
+            checkLastName()
+            checkEmail()
+            checkNumber()
+            checkPassword()
+            let passwordInput = document.getElementById("password")
+            let passwordLabel = document.getElementById("alert-msg1")
+            let passwordInput2 = document.getElementById("password-confirm")
+            let passwordLabel2 = document.getElementById("alert-msg2")
+            passwordLabel2.style.color = "white"
+        if(checkPassword()){
+            if (passwordInput.value == passwordInput2.value) {
+                    passwordLabel2.style.background = "green"
+                    passwordLabel2.innerText = "Passwords are matching"
+                    passwordLabel2.style.border = "none"
+                    return true
+                }
+
+                else {
+                    passwordLabel2.style.background = "red"
+                    passwordLabel2.innerText = "Error. Passwords do not match"
+                    passwordLabel2.style.border = "none"
+                    return false
+                }
+        }
+        else{
+                passwordLabel2.style.background="red"
+                passwordLabel2.innerText="Main Password is Invalid"
+            }
+        }
+
+
+        function validate(){
+        if(checkFirstName()&&checkLastName()&&checkEmail()&&checkNumber()&&checkPassword()&&confirmPassword()){
+            return true
+        }
+        else{
+            return false
+        }
+        }
     </script>
 
 </body>
